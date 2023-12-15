@@ -1,0 +1,29 @@
+{
+  "name": "projectflow",
+  "version": "1.0.0",
+  "description": "project planner system",
+  "main": "app.js",
+  "scripts": {
+    "start-server": "nodemon ./app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/androidmini9x/ProjectFlow.git"
+  },
+  "author": "Androidmini9x",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/androidmini9x/ProjectFlow/issues"
+  },
+  "homepage": "https://github.com/androidmini9x/ProjectFlow#readme",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "6.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.10",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.2",
+    "request": "^2.88.2"
+  }
+}
