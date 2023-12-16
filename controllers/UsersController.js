@@ -47,6 +47,9 @@ class UsersController {
 
         const sessionID = uuidv4();
 
+        const session = await dbClient.insert('sessions', { token: sessionID, user_id: isExist._id });
+        if (!session.acknowledged) return res.status(401).send({ error: 'Login process failed' });
+
         return res.status(200).send({ token: sessionID });
     }
 }

@@ -79,10 +79,11 @@ describe('Test Usercontroller [Register]', () => {
 });
 
 
-describe.only('Test Usercontroller [#Login]', () => {
+describe('Test Usercontroller [#Login]', () => {
 
     before(async () => {
         await dbClient.db.collection('users').drop();
+        await dbClient.db.collection('sessions').drop();
         await dbClient.insert('users', { ...userMock, password: '$2b$12$orq7oJTuYhOTFoq2g46Fa.S5Y1qjhPFy/mbpGI6948DdpdwOrXBsa' });
     });
 
