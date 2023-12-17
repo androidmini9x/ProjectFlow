@@ -3,6 +3,7 @@ const userRoute = require('./routes/users');
 const projectRoute = require('./routes/project');
 const taskRoute = require('./routes/task');
 const inviteRoute = require('./routes/invite');
+const teamRoute = require('./routes/team');
 const app = express();
 
 const port = process.env.PORT || 8000;
@@ -23,6 +24,7 @@ app.use(userRoute);
 app.use(projectRoute);
 app.use(taskRoute);
 app.use(inviteRoute);
+app.use(teamRoute);
 
 
 app.get('/', (req, res) => {
