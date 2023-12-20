@@ -6,10 +6,13 @@ const inviteRoute = require('./routes/invite');
 const teamRoute = require('./routes/team');
 const infoRoute = require('./routes/auth');
 const app = express();
+const cors = require('cors');
 
 const port = process.env.PORT || 8000;
 
-
+app.use(cors({
+    origin: '*'
+}));
 app.use(express.json());
 
 
