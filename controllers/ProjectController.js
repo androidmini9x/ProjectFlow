@@ -74,6 +74,18 @@ class ProjectController {
 
         res.status(200).send({ message: 'Projects updated successfully' });
     }
+
+    static async get_all(req, res) {
+        const { user_id } = res.user_session;
+
+        const projects = await dbClient.db.collection('projects').find({
+            teams: { $in: [user_id] }
+        }).project({ _id: 1, name: 1, description: 1, owner: 1 }).toArray();
+
+        if (!projects) return res.status(404).send({ error: 'Not found' });
+
+        return res.status(200).send(projects);
+    }
 }
 
 export default ProjectController;
