@@ -4,6 +4,7 @@ const projectRoute = require('./routes/project');
 const taskRoute = require('./routes/task');
 const inviteRoute = require('./routes/invite');
 const teamRoute = require('./routes/team');
+const infoRoute = require('./routes/auth');
 const app = express();
 
 const port = process.env.PORT || 8000;
@@ -25,11 +26,7 @@ app.use(projectRoute);
 app.use(taskRoute);
 app.use(inviteRoute);
 app.use(teamRoute);
-
-
-app.get('/', (req, res) => {
-    res.end('Hello, World');
-});
+app.use(infoRoute);
 
 
 app.listen(port, () => {

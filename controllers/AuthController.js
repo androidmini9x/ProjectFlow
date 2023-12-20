@@ -14,6 +14,21 @@ class AuthController {
 
         next();
     }
+
+    static async getMe(req, res) {
+
+        const { user_id } = res.user_session;
+
+        const user = await dbClient.get('users', {
+            _id: user_id
+        });
+
+        if (!user) return res.status(401).send({ error: 'Unauthorized' });
+
+        delete user.password;
+
+        return res.status(200).send({ ...user });
+    }
 }
 
 export default AuthController;
