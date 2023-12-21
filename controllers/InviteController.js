@@ -18,7 +18,7 @@ class TeamController {
 
         const invitation = uuidv4().toString().replaceAll('-', '');
 
-        await dbClient.insert('invitations', {
+        const invitations = await dbClient.insert('invitations', {
             user_id: invited._id,
             owner: user_id,
             project_id: new ObjectId(project_id),
@@ -26,7 +26,18 @@ class TeamController {
             token: invitation
         });
 
-        return res.status(200).send({ message: 'Invitation created successfully', invitation });
+        return res.status(200).send({
+            message: 'Invitation created successfully',
+            _id: invitations.insertedId,
+            user_id: invited._id,
+            owner: user_id,
+            status: 'active',
+            token: invitation,
+            email: invited.email,
+            firstname: invited.firstname,
+            lastname: invited.lastname,
+            invitation
+        });
     }
 
     static async join(req, res) {
@@ -76,7 +87,22 @@ class TeamController {
 
         if (project.owner.toString() != user_id.toString()) return res.status(401).send({ error: 'Unauthorized' });
 
-        const invitations = await dbClient.db.collection('invitations').find({ project_id: new ObjectId(project_id) }).limit(20).toArray();
+        // const invitations = await dbClient.db.collection('invitations').find({ project_id: new ObjectId(project_id) }).limit(20).toArray();
+
+        const invitations = await dbClient.db.collection('invitations').aggregate([
+            {
+                $lookup: {
+                    from: "users",
+                    localField: "user_id",
+                    foreignField: "_id",
+                    as: "user"
+                }
+            },
+            {
+                $replaceRoot: { newRoot: { $mergeObjects: [{ $arrayElemAt: ["$user", 0] }, "$$ROOT"] } }
+            },
+            { $project: { user: 0, password: 0, project_id: 0 } }
+        ]).toArray();
 
         if (!invitations) return res.status(404).send({ error: 'Failed to fetch invitations' });
 

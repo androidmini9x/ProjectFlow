@@ -192,7 +192,7 @@ describe('Test TaskController', () => {
                 },
                 (_, resp, body) => {
                     expect(resp.statusCode).to.be.equal(200);
-                    expect(body.length).to.be.equal(5);
+                    expect(body.length).to.be.equal(6);
                     done();
                 }
             );
