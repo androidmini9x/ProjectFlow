@@ -6,7 +6,8 @@
   "scripts": {
     "start-server": "nodemon --config nodemon.json --exec babel-node --presets @babel/preset-env ./app.js",
     "test": "mocha --require @babel/register --exit",
-    "test-all": "mocha --config mocha.config.js --exit"
+    "test-all": "mocha --config mocha.config.js --exit",
+    "seed": "npx babel-node --no-babelrc seeder.js"
   },
   "repository": {
     "type": "git",
