@@ -56,6 +56,11 @@ class TeamController {
             { $set: { status: 'expired' } }
         );
 
+        await dbClient.update('projects',
+            { _id: invitation.project_id },
+            { $push: { teams: user_id } }
+        )
+
         return res.status(200).send({ message: 'Invitation Accepted', project_id: invitation.project_id.toString() });
     }
 
@@ -91,6 +96,9 @@ class TeamController {
 
         const invitations = await dbClient.db.collection('invitations').aggregate([
             {
+                $match: { project_id: new ObjectId(project_id), state: 'active' }
+            },
+            {
                 $lookup: {
                     from: "users",
                     localField: "user_id",
@@ -102,6 +110,32 @@ class TeamController {
                 $replaceRoot: { newRoot: { $mergeObjects: [{ $arrayElemAt: ["$user", 0] }, "$$ROOT"] } }
             },
             { $project: { user: 0, password: 0, project_id: 0 } }
+        ]).toArray();
+
+        if (!invitations) return res.status(404).send({ error: 'Failed to fetch invitations' });
+
+        return res.status(200).send(invitations);
+    }
+
+    static async get_mine(req, res) {
+        const { user_id } = res.user_session;
+
+        const invitations = await dbClient.db.collection('invitations').aggregate([
+            {
+                $match: { user_id: user_id, status: 'active' }
+            },
+            {
+                $lookup: {
+                    from: "projects",
+                    localField: "project_id",
+                    foreignField: "_id",
+                    as: "project"
+                }
+            },
+            {
+                $replaceRoot: { newRoot: { $mergeObjects: [{ $arrayElemAt: ["$project", 0] }, "$$ROOT"] } }
+            },
+            { $project: { project: 0, teams: 0, description: 0 } }
         ]).toArray();
 
         if (!invitations) return res.status(404).send({ error: 'Failed to fetch invitations' });

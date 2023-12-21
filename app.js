@@ -17,7 +17,7 @@ app.use(express.json());
 
 
 // Test middle ware
-app.use('/project/:project_id/invitation', (req, res, next) => {
+app.use('/project/invitation', (req, res, next) => {
     console.log("params: ", req.params);
     console.log("body: ", req.body);
     console.log("body: ", req.headers);
