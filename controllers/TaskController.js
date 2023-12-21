@@ -95,6 +95,32 @@ class TaskController {
 
         return res.status(200).send(tasks);
     }
+
+    static async get_mine(req, res) {
+        const { user_id } = res.user_session;
+
+        const tasks = await dbClient.db.collection('projects').aggregate([
+            {
+                $match: {
+                    teams: { $in: [user_id] }
+                }
+            },
+            {
+                $lookup: {
+                    from: "tasks",
+                    localField: "_id",
+                    foreignField: "project_id",
+                    as: "task"
+                }
+            },
+            { $project: { project_name: "$name", task: 1, _id: 0 } },
+            { $unwind: "$task" }
+        ]).toArray();
+
+        if (!tasks) return res.status(404).send({ error: 'Failed to fetch tasks' });
+
+        return res.status(200).send(tasks);
+    }
 }
 
 export default TaskController;
