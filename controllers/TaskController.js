@@ -89,7 +89,7 @@ class TaskController {
         const auth = project.teams.find(e => e.toString() == user_id.toString());
         if (!auth) return res.status(401).send({ error: 'Unauthorized' });
 
-        const tasks = await dbClient.db.collection('tasks').find({ project_id: new ObjectId(project_id) }).limit(5).toArray();
+        const tasks = await dbClient.db.collection('tasks').find({ project_id: new ObjectId(project_id) }).toArray();
 
         if (!tasks) return res.status(404).send({ error: 'Failed to fetch tasks' });
 
