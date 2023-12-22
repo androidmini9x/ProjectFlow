@@ -14,7 +14,7 @@ class TeamController {
 
         const teams = await dbClient.db.collection('users').find({
             _id: { $in: project.teams }
-        }).project({ _id: 1, firstname: 1, lastname: 1 }).toArray();
+        }).project({ password: 0 }).toArray();
 
         if (!teams) return res.status(404).send({ error: 'Failed to fetch teams' });
 
