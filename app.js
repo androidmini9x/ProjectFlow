@@ -5,6 +5,7 @@ const taskRoute = require('./routes/task');
 const inviteRoute = require('./routes/invite');
 const teamRoute = require('./routes/team');
 const infoRoute = require('./routes/auth');
+const commentRoute = require('./routes/comment');
 const app = express();
 const cors = require('cors');
 
@@ -27,6 +28,7 @@ app.use('/project/invitation', (req, res, next) => {
 app.use(userRoute);
 app.use(projectRoute);
 app.use(taskRoute);
+app.use(commentRoute);
 app.use(inviteRoute);
 app.use(teamRoute);
 app.use(infoRoute);
