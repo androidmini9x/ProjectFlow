@@ -36,7 +36,7 @@ class TeamController {
         const updated = await dbClient.update('projects', {
             _id: new ObjectId(project_id)
         }, {
-            $pop: { teams: idx }
+            $pull: { teams: new ObjectId(removed_id) }
         });
         if (updated.modifiedCount != 1) return res.status(404).send({ error: 'Failed to remove user from teams' });
 
@@ -60,7 +60,7 @@ class TeamController {
         const updated = await dbClient.update('projects', {
             _id: new ObjectId(project_id)
         }, {
-            $pop: { teams: idx }
+            $pull: { teams: user_id }
         });
 
         if (updated.modifiedCount != 1) return res.status(404).send({ error: 'Failed to remove user from teams' });
