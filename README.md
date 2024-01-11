@@ -1,5 +1,7 @@
 # ProjectFlow
 
+> This is just a back-end part, the front-end part of this project is on [here](https://github.com/androidmini9x/ProjectFlowUI)
+
 **ProjectFlow: Streamlining Your Project Management Experience**
 
 ProjectFlow is a dynamic and intuitive project planner system designed to simplify and enhance your project management process. Whether you're a solo entrepreneur, a small team, or a large organization, ProjectFlow empowers you to effortlessly plan, execute, and monitor projects with precision and ease.
@@ -13,12 +15,6 @@ ProjectFlow is a dynamic and intuitive project planner system designed to simpli
 3. **Real-Time Progress Tracking:** Stay informed about project progress at a glance. ProjectFlow provides real-time updates on task completion, timelines, and potential roadblocks, ensuring everyone is on the same page.
 
 4. **Interactive Gantt Charts:** Visualize project timelines with interactive Gantt charts. Easily adjust timelines, dependencies, and milestones to keep your projects on track.
-
-5. **Resource Allocation:** Efficiently allocate resources with ProjectFlow's resource management tools. Avoid overloads and bottlenecks by optimizing the distribution of tasks among team members.
-
-6. **Customizable Reporting:** Generate detailed reports on project performance, timelines, and resource utilization. Use these insights to make informed decisions and continuously improve your project management strategies.
-
-7. **Integration and Compatibility:** Seamlessly integrate ProjectFlow with popular tools and platforms, enhancing its functionality and ensuring compatibility with your existing workflow.
 
 **Why Choose ProjectFlow?**
 
