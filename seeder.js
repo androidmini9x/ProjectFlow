@@ -114,66 +114,67 @@ const users = [
 
 const tasks = [
     {
-        "name": "Design Wireframes",
-        "description": "Create wireframes for the new project interface",
-        "start": "2023-12-22",
-        "end": "2023-12-28"
+      "name": "Strategic Planning",
+      "description": "Conduct strategic planning session for the upcoming year",
+      "start": "2024-01-08",
+      "end": "2024-01-15"
     },
     {
-        "name": "Develop Backend API",
-        "description": "Implement the backend API functionalities",
-        "start": "2023-12-23",
-        "end": "2023-12-30"
+      "name": "Budget Review",
+      "description": "Review and finalize the budget for the first quarter",
+      "start": "2024-01-10",
+      "end": "2024-01-17"
     },
     {
-        "name": "User Interface Testing",
-        "description": "Conduct user interface testing for responsiveness",
-        "start": "2023-12-25",
-        "end": "2023-12-31"
+      "name": "Team Training",
+      "description": "Organize training sessions for team members",
+      "start": "2024-01-12",
+      "end": "2024-01-19"
     },
     {
-        "name": "Deploy to Production",
-        "description": "Deploy the application to the production environment",
-        "start": "2023-12-28",
-        "end": "2024-01-05"
+      "name": "Product Roadmap",
+      "description": "Define and document the product roadmap for the year",
+      "start": "2024-01-15",
+      "end": "2024-01-22"
     },
     {
-        "name": "Client Meeting",
-        "description": "Discuss project progress with the client",
-        "start": "2023-12-30",
-        "end": "2024-01-03"
+      "name": "Client Meetings",
+      "description": "Schedule and conduct meetings with key clients",
+      "start": "2024-01-18",
+      "end": "2024-01-25"
     },
     {
-        "name": "Content Creation",
-        "description": "Generate content for the project documentation",
-        "start": "2024-01-02",
-        "end": "2024-01-08"
+      "name": "Marketing Strategy",
+      "description": "Develop and finalize marketing strategies",
+      "start": "2024-01-20",
+      "end": "2024-01-27"
     },
     {
-        "name": "Bug Fixing",
-        "description": "Address and fix reported bugs in the system",
-        "start": "2024-01-05",
-        "end": "2024-01-12"
+      "name": "Internal Auditing",
+      "description": "Perform internal auditing to ensure compliance",
+      "start": "2024-01-22",
+      "end": "2024-01-29"
     },
     {
-        "name": "Team Collaboration",
-        "description": "Coordinate with team members for project collaboration",
-        "start": "2024-01-08",
-        "end": "2024-01-15"
+      "name": "Employee Reviews",
+      "description": "Conduct employee performance reviews",
+      "start": "2024-01-25",
+      "end": "2024-02-01"
     },
     {
-        "name": "Final Testing",
-        "description": "Perform final testing and quality assurance",
-        "start": "2024-01-10",
-        "end": "2024-01-17"
+      "name": "Tech Innovation Session",
+      "description": "Discuss and plan for technology innovation initiatives",
+      "start": "2024-01-28",
+      "end": "2024-02-04"
     },
     {
-        "name": "Project Delivery",
-        "description": "Deliver the completed project to the client",
-        "start": "2024-01-15",
-        "end": "2024-01-22"
+      "name": "Company Retreat",
+      "description": "Organize a company retreat for team-building",
+      "start": "2024-01-30",
+      "end": "2024-02-06"
     }
-]
+];
+  
 
 // Create accounts
 
